@@ -1,0 +1,55 @@
+Exercise 1
+	Scenario 1
+		1. Because step size (32 bytes) in bytes is exactly equal to cash size in bytes.
+		2. 0 Because it always replace the same data block.
+		3. Change step size to 1.
+
+	Scenario 2
+		1. 64
+		2. Because one data block can contain 16 bytes which means containing 4 continuous array elements.
+		3. Every time loading an elements, the following element will come with the previous one.
+		So when we assess next one, it will hit.
+		4. It will increase and approach to 1. Because after the first loop, the cache has loaded all the address and does't need replace blocks.
+		5. We should try to access particular element of the array at a time and apply all of the different functions to that particular element so we can be completely done with it before moving on, thereby keeping that particular hot in the cache and not having to circle back to it later on! 
+
+	Scenario 3
+		1. 1/2, 0, 1/3 
+		2. 32, 16
+		3. 16; Every time L1 miss, the processor will access L2.
+		4. L2 block size; Because every when fetch data from main memory, L2 will load more data than L1.
+		5. No change; L1 increase, L2 don't change
+
+Exercise 2
+	ijk: 1.970 Gflop/s
+	ikj: 0.283 Gflop/s
+	jik: 2.028 Gflop/s
+	jki: 14.688 Gflop/s
+	kij: 0.277 Gflop/s
+	kji: 13.349 Gflop/s
+
+	I don't know how to use Makefile!!! sorry sir.
+	WOW I get it. Window OS can't use functions like srand48() and so on. So compile fails.
+
+	1. jki kji; Because the average strides of them is smallest. 
+	2. ikj kij; Because the average strides of them is largest.
+	3. The smaller strides it need to move, the higher hit rate it will reach.
+
+Exercise 3
+	Part 1
+		blocksize = 20, n = 100: 0.006 milliseconds 0.006 milliseconds
+		blocksize = 20, n = 1000: 1.048	0.824
+		blocksize = 20, n = 2000: 14.75 5.176
+		blocksize = 20, n = 5000: 124.132 31.226
+		blocksize = 20, n = 10000: 629.666 135.362
+
+		1. n = 1000
+		2. When the blocksize is close to n, the result isn't obvious. Besides, we don't know the exact cache blocksize, maybe when n is small, all data is loaded when first access and don't need split by our block.
+
+	Part 2
+		blocksize = 50, n = 10000: 621.284 135.032
+		blocksize = 100, n = 10000: 628.31 134.338
+		blocksize = 500, n = 10000: 624.978 138.302
+		blocksize = 1000, n = 10000: 626.884 160.946
+		blocksize = 5000, n = 10000: 649.924 614.669
+
+		1. When blocksize is smaller than 1000, the performance is excellent. But when it becomes larger, the performance is bad.

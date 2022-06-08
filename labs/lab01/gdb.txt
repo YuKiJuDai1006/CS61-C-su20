@@ -1,0 +1,9 @@
+1.run
+2.break #line
+3.n
+4.s
+5.c
+6.print
+7.display valuable
+8.display 
+9.quit

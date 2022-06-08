@@ -1,0 +1,10 @@
+ex1 : 1. Data address is 8-bit. Page size is 32 words, so the offset is 5-bit and the VPN is 3-bit.
+	  2. TLB hits 3 times. TLB misses 7 times. Page hits 0 time. Page faults 7 times.
+	  3. No. Because the physical memory page sizes is the same as TLB. So every time the TLB updates, the PT also updates. I can't.
+	  4. First, break down the virtual address and find the VPN. Second, search TLB for the VPN, but miss. Third, search PT for the VPN, but the valid bit is 0, so page fault. Forth, load the physical address from disk, update TLB and PT, turn the valid bit to 1. Finally, combine the PPN with offset, that's the physical address we want.
+
+ex2 : 1. My sequence: 00 20 40 60 80 00 20 40 60 80. Ping-pong effect.
+
+ex3 : 1. larger physical memory size; When the address 0x80 replaces the 0x00 in the TLB, there is no change in PT(0x00 VPN's valid bit is still 1). So next time it accesses 0x00, the PT won't make page fault.
+
+ex4 : 1. P1, P2, P3, P4 represent four different processes. Because every time when process changes, the TLB will clear. So when the particular process is accessed second time, original TLB will be clear and the percentage of TLB misses will be higher. 
